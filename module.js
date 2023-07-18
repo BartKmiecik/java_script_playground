@@ -1,3 +1,4 @@
+
 function generate_img(){
   console.log("Start generating")
   let text =  { "prompt": "Dog", "save_images": true }
@@ -26,7 +27,6 @@ function send_log(){
   console.log("Fuck you")
 }
 
-send_log()
 
 const btn = document.getElementById("btn");
 btn.addEventListener("click", generate_img);
@@ -34,4 +34,5 @@ btn.addEventListener("click", generate_img);
 const btn2 = document.getElementById("btn2");
 btn2.addEventListener("click", send_log);
 
-send_log()
+
+console.log('FUCKING BUTTONS!!!!!!!!!')
