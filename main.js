@@ -1,8 +1,13 @@
+let text =  { "prompt": "Dog", "save_images": true }
+const payload = JSON.stringify(text);
+
 var XMLHttpRequest = require('xhr2');
 var xhr = new XMLHttpRequest();
-url = "http://192.168.43.44:7860/controlnet/model_list"
-xhr.open("GET", url);
-xhr.send();
+url = "http://192.168.43.44:7860/sdapi/v1/txt2img"
+xhr.open("POST", url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.getResponseHeader('Content-Type')
+xhr.send(payload);
 xhr.onload = () => {
   if (xhr.readyState == 4 && xhr.status == 200) {
     console.log(xhr.response);
@@ -11,25 +16,3 @@ xhr.onload = () => {
     console.log(`Error: ${xhr.status}`);
   }
 };
-
-
-// Function to download data to a file
-// function download(data, filename, type) {
-//     var file = new Blob([data], {type: type});
-//     if (window.navigator.msSaveOrOpenBlob) // IE10+
-//         window.navigator.msSaveOrOpenBlob(file, filename);
-//     else { // Others
-//         var a = document.createElement("a"),
-//                 url = URL.createObjectURL(file);
-//         a.href = url;
-//         a.download = filename;
-//         document.body.appendChild(a);
-//         a.click();
-//         setTimeout(function() {
-//             document.body.removeChild(a);
-//             window.URL.revokeObjectURL(url);  
-//         }, 0); 
-//     }
-// }
-
-//   saveResponseToFile(url);
